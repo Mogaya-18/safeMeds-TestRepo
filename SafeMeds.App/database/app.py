@@ -7,12 +7,15 @@ app = Flask(__name__)
 CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 def get_db_connection():
-    return mysql.connector.connect(
-        host="localhost",
-        user="root",
-        password="",
-        database="safemeds_db"
-    )
+     return mysql.connector.connect(
+                host="localhost",
+                user="root",
+                port=3306,
+                password="",
+                database="safemeds_db"
+            )
+   
+    
 
 @app.route('/api/inventory', methods=['GET','POST','OPTIONS'])
 def inventory():
@@ -82,3 +85,10 @@ def inventory():
 if __name__== '__main__':
     app.run(port=5000, debug=True)     
     
+    
+    
+    
+    
+        
+        
+               
